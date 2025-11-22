@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+
+[build.requirements]
+python = "3.11"
+node = "18"
+
+[deploy]
+startCommand = "cd backend && python public_app_fixed.py"
+
+[[services]]
+name = "web"
+run = "cd backend && python public_app_fixed.py"

@@ -1,0 +1,25 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "builds": [
+    {
+      "src": "backend/requirements.txt",
+      "use": "@railway/python"
+    },
+    {
+      "src": "frontend/package.json", 
+      "use": "@railway/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/$1"
+    }
+  ]
+}
